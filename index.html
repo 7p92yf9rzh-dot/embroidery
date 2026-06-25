@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>embroidery</title>
+<title>刺繍糸カラーマッチング</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap');
@@ -15,7 +15,7 @@
 body{background:var(--linen);color:var(--ink);font-family:'Noto Sans JP',sans-serif;font-weight:300;min-height:100vh;}
 header{background:var(--brown);padding:1.4rem 1rem 1.1rem;text-align:center;}
 header h1{font-family:'Noto Serif JP',serif;font-size:1.35rem;color:var(--linen);letter-spacing:.1em;font-weight:600;}
-header p{color:var(--rose);font-size:.72rem;letter-spacing:.06em;margin-top:.3rem;}
+header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem;}
 
 /* 2カラムレイアウト */
 main{
@@ -40,70 +40,70 @@ main{
 .upload-zone{border:2px dashed var(--border);border-radius:4px;background:var(--warm);padding:2rem 1rem;text-align:center;cursor:pointer;transition:.2s;position:relative;}
 .upload-zone:hover,.upload-zone.drag-over{border-color:var(--rose);background:#FDF6F0;}
 .upload-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
-.upload-icon{font-size:2rem;margin-bottom:.5rem;display:block;}
-.upload-zone h2{font-size:.9rem;font-weight:500;color:var(--brown);font-family:'Noto Serif JP',serif;margin-bottom:.25rem;}
-.upload-zone p{font-size:.7rem;color:var(--muted);}
+.upload-icon{font-size:2.4rem;margin-bottom:.5rem;display:block;}
+.upload-zone h2{font-size:1.1rem;font-weight:500;color:var(--brown);font-family:'Noto Serif JP',serif;margin-bottom:.25rem;}
+.upload-zone p{font-size:.9rem;color:var(--muted);}
 
 /* preview */
 #preview-section{display:none;margin-top:1.3rem;}
 .toolbar{display:flex;align-items:center;gap:.4rem;margin-bottom:.5rem;flex-wrap:wrap;}
-.tb-btn{border:1px solid var(--border);background:var(--warm);border-radius:3px;padding:.32rem .7rem;font-size:.7rem;font-family:'Noto Sans JP',sans-serif;cursor:pointer;color:var(--muted);transition:.15s;white-space:nowrap;}
+.tb-btn{border:1px solid var(--border);background:var(--warm);border-radius:3px;padding:.4rem .85rem;font-size:.85rem;font-family:'Noto Sans JP',sans-serif;cursor:pointer;color:var(--muted);transition:.15s;white-space:nowrap;}
 .tb-btn:hover{border-color:var(--rose);color:var(--rose);}
 .tb-btn.active{background:var(--brown);border-color:var(--brown);color:var(--linen);}
 .tb-sep{flex:1;}
-.zoom-label{font-size:.68rem;color:var(--muted);min-width:3rem;text-align:right;}
-.zb{border:1px solid var(--border);background:var(--warm);border-radius:3px;width:26px;height:26px;font-size:.95rem;cursor:pointer;color:var(--brown);display:flex;align-items:center;justify-content:center;padding:0;}
+.zoom-label{font-size:.82rem;color:var(--muted);min-width:3rem;text-align:right;}
+.zb{border:1px solid var(--border);background:var(--warm);border-radius:3px;width:30px;height:30px;font-size:1rem;cursor:pointer;color:var(--brown);display:flex;align-items:center;justify-content:center;padding:0;}
 .zb:hover{border-color:var(--rose);}
 .viewport{width:100%;height:360px;border:1px solid var(--border);border-radius:4px;background:#1a1210;overflow:hidden;position:relative;user-select:none;-webkit-user-select:none;touch-action:none;}
 #view-canvas{position:absolute;top:0;left:0;}
 #sel-overlay{position:absolute;top:0;left:0;pointer-events:none;}
-.hint-bar{font-size:.66rem;color:var(--muted);margin-top:.35rem;text-align:center;min-height:1em;}
+.hint-bar{font-size:.82rem;color:var(--muted);margin-top:.35rem;text-align:center;min-height:1em;}
 .hint-bar b{color:var(--rose);font-weight:500;}
-.btn-clear-sel{display:none;background:none;border:1px solid var(--border);border-radius:3px;padding:.26rem .75rem;font-size:.68rem;color:var(--muted);cursor:pointer;margin-top:.3rem;font-family:'Noto Sans JP',sans-serif;}
+.btn-clear-sel{display:none;background:none;border:1px solid var(--border);border-radius:3px;padding:.32rem .85rem;font-size:.82rem;color:var(--muted);cursor:pointer;margin-top:.3rem;font-family:'Noto Sans JP',sans-serif;}
 .btn-clear-sel:hover{border-color:var(--rose);color:var(--rose);}
 
 
 /* controls */
 .controls{display:flex;align-items:center;gap:.9rem;margin-top:.9rem;flex-wrap:wrap;}
-.ctl-label{font-size:.72rem;color:var(--muted);white-space:nowrap;}
+.ctl-label{font-size:.88rem;color:var(--muted);white-space:nowrap;}
 input[type=range]{flex:1;accent-color:var(--rose);min-width:80px;}
-#count-display{font-size:.82rem;font-weight:500;color:var(--brown);width:1.8rem;}
-.btn-extract{background:var(--brown);color:var(--linen);border:none;border-radius:3px;padding:.62rem 1.4rem;font-family:'Noto Sans JP',sans-serif;font-size:.82rem;font-weight:400;letter-spacing:.06em;cursor:pointer;transition:.2s;width:100%;margin-top:.7rem;}
+#count-display{font-size:.95rem;font-weight:500;color:var(--brown);width:1.8rem;}
+.btn-extract{background:var(--brown);color:var(--linen);border:none;border-radius:3px;padding:.75rem 1.4rem;font-family:'Noto Sans JP',sans-serif;font-size:1rem;font-weight:400;letter-spacing:.06em;cursor:pointer;transition:.2s;width:100%;margin-top:.7rem;}
 .btn-extract:hover{background:var(--rose);}
 .btn-extract:disabled{background:var(--muted);cursor:not-allowed;}
 
 /* brand tabs */
 #results-section{display:none;margin-top:1.8rem;}
-.section-title{font-family:'Noto Serif JP',serif;font-size:.8rem;color:var(--muted);letter-spacing:.1em;margin-bottom:.8rem;padding-bottom:.45rem;border-bottom:1px solid var(--border);}
+.section-title{font-family:'Noto Serif JP',serif;font-size:.95rem;color:var(--muted);letter-spacing:.1em;margin-bottom:.8rem;padding-bottom:.45rem;border-bottom:1px solid var(--border);}
 .brand-tabs{display:flex;gap:.4rem;margin-bottom:1rem;flex-wrap:wrap;}
-.brand-tab{border:1px solid var(--border);background:var(--warm);border-radius:3px;padding:.3rem .85rem;font-size:.72rem;font-family:'Noto Sans JP',sans-serif;cursor:pointer;color:var(--muted);transition:.15s;}
+.brand-tab{border:1px solid var(--border);background:var(--warm);border-radius:3px;padding:.4rem 1rem;font-size:.88rem;font-family:'Noto Sans JP',sans-serif;cursor:pointer;color:var(--muted);transition:.15s;}
 .brand-tab:hover{border-color:var(--rose);color:var(--rose);}
 .brand-tab.active{background:var(--brown);border-color:var(--brown);color:var(--linen);}
 .brand-panel{display:none;}
 .brand-panel.active{display:block;}
 
 /* color cards */
-.color-list{display:flex;flex-direction:column;gap:.55rem;}
+.color-list{display:flex;flex-direction:column;gap:.65rem;}
 .color-row{background:var(--warm);border:1px solid var(--border);border-radius:4px;display:flex;align-items:stretch;overflow:hidden;}
-.row-rank{width:28px;display:flex;align-items:center;justify-content:center;font-size:.62rem;color:var(--muted);font-weight:500;flex-shrink:0;border-right:1px solid var(--border);}
-.row-swatches{display:flex;flex-direction:column;width:56px;flex-shrink:0;}
+.row-rank{width:32px;display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--muted);font-weight:500;flex-shrink:0;border-right:1px solid var(--border);}
+.row-swatches{display:flex;flex-direction:column;width:64px;flex-shrink:0;}
 .swatch-h{flex:1;position:relative;}
-.swatch-label{position:absolute;bottom:2px;left:3px;font-size:.55rem;background:rgba(0,0,0,.3);color:#fff;padding:1px 3px;border-radius:2px;}
-.row-info{flex:1;padding:.5rem .7rem;min-width:0;}
-.thread-num{font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:600;color:var(--brown);}
-.thread-name{font-size:.68rem;color:var(--muted);margin-top:.08rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.hex-pair{display:flex;gap:.35rem;margin-top:.35rem;font-size:.63rem;color:var(--muted);font-family:monospace;}
-.delta-badge{display:inline-block;font-size:.58rem;padding:1px 5px;border-radius:10px;margin-top:.28rem;font-weight:500;}
+.swatch-label{position:absolute;bottom:2px;left:3px;font-size:.65rem;background:rgba(0,0,0,.3);color:#fff;padding:1px 4px;border-radius:2px;}
+.row-info{flex:1;padding:.6rem .85rem;min-width:0;}
+.thread-num{font-family:'Noto Serif JP',serif;font-size:1.2rem;font-weight:600;color:var(--brown);}
+.thread-name{font-size:.85rem;color:var(--muted);margin-top:.08rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hex-pair{display:flex;gap:.35rem;margin-top:.4rem;font-size:.78rem;color:var(--muted);font-family:monospace;}
+.delta-badge{display:inline-block;font-size:.75rem;padding:2px 6px;border-radius:10px;margin-top:.3rem;font-weight:500;}
 .delta-great{background:#E8F5E8;color:#2E7D32;}
 .delta-good{background:#FFF8E1;color:#F57F17;}
 .delta-fair{background:#FDE8E8;color:#C62828;}
-.row-bar{width:54px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.4rem .3rem;border-left:1px solid var(--border);flex-shrink:0;}
+.row-bar{width:58px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.4rem .3rem;border-left:1px solid var(--border);flex-shrink:0;}
 .bar-track{width:8px;flex:1;background:var(--border);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;max-height:60px;}
 .bar-fill{width:100%;background:var(--rose);border-radius:4px;transition:height .4s ease;}
-.bar-pct{font-size:.6rem;color:var(--muted);margin-top:.25rem;white-space:nowrap;}
+.bar-pct{font-size:.75rem;color:var(--muted);margin-top:.25rem;white-space:nowrap;}
 
 /* loading */
-.loading{text-align:center;padding:1.8rem;color:var(--muted);font-size:.8rem;display:none;}
+.loading{text-align:center;padding:1.8rem;color:var(--muted);font-size:.95rem;display:none;}
 .spinner{display:inline-block;width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--rose);border-radius:50%;animation:spin .8s linear infinite;margin-bottom:.4rem;}
 @keyframes spin{to{transform:rotate(360deg);}}
   .crown-badge{font-size:.85rem;}
@@ -114,7 +114,7 @@ input[type=range]{flex:1;accent-color:var(--rose);min-width:80px;}
 </head>
 <body>
 <header>
-  <h1>🧵 刺繍糸カラーマッチャー</h1>
+  <h1>🧵 刺繍糸カラーマッチング</h1>
   <p>画像から色を抽出 → DMC / COSMO / オリムパス の糸番号を提案</p>
 </header>
 <main>
