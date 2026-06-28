@@ -117,7 +117,7 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
 .inv-title-block{}
 .inv-eyebrow{display:inline-flex;align-items:center;gap:.35rem;font-size:1.8rem;letter-spacing:.05em;color:var(--rose);font-weight:600;font-family:'Noto Serif JP',serif;}
 .inv-title{font-family:'Noto Serif JP',serif;font-size:2rem;font-weight:600;margin-top:.2rem;letter-spacing:-.01em;}
-.inv-stats{display:flex;gap:.6rem;}
+.inv-stats{display:flex;gap:.4rem;}
 .inv-stat{background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:.5rem .9rem;display:flex;align-items:baseline;gap:.35rem;}
 .inv-stat strong{font-family:'Noto Serif JP',serif;font-size:1.2rem;}
 .inv-stat span{font-size:.72rem;color:var(--muted);}
@@ -128,7 +128,7 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
 .inv-search{flex:1 1 200px;display:flex;align-items:center;gap:.5rem;background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:0 .75rem;color:var(--muted);}
 .inv-search input{border:none;background:none;outline:none;padding:.6rem 0;font-size:.9rem;color:var(--ink);width:100%;font-family:'Noto Sans JP',sans-serif;}
 .inv-select{background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:.6rem .75rem;font-size:.85rem;color:var(--ink);font-family:'Noto Sans JP',sans-serif;outline:none;cursor:pointer;}
-.inv-btn{display:inline-flex;align-items:center;gap:.4rem;border-radius:8px;border:1px solid transparent;padding:.6rem 1rem;font-size:.85rem;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif;white-space:nowrap;}
+.inv-btn{display:inline-flex;align-items:center;gap:.4rem;border-radius:6px;border:1px solid transparent;padding:.45rem .85rem;font-size:.82rem;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif;white-space:nowrap;}
 .inv-btn-solid{background:var(--brown);color:var(--linen);}
 .inv-btn-solid:hover{background:var(--rose);}
 .inv-btn-ghost{background:transparent;border-color:var(--border);color:var(--ink);}
@@ -160,27 +160,27 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
 .inv-icon-btn.danger:hover{color:var(--warn);}
 
 /* モーダル */
-.inv-overlay{position:fixed;inset:0;background:rgba(44,31,20,.45);display:flex;align-items:center;justify-content:center;padding:1rem;z-index:100;}
-.inv-sheet{background:var(--warm);border-radius:12px;width:100%;max-width:440px;max-height:90vh;overflow-y:auto;border:1px solid var(--border);}
-.inv-sheet-head{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.2rem 0;}
-.inv-sheet-head h2{font-family:'Noto Serif JP',serif;font-size:1.3rem;margin:0;}
-.inv-sheet-body{padding:.9rem 1.2rem;display:flex;flex-direction:column;gap:.9rem;}
-.inv-sheet-foot{display:flex;justify-content:flex-end;gap:.5rem;padding:.9rem 1.2rem 1.2rem;border-top:1px solid var(--border);margin-top:.25rem;}
-.inv-preview-row{display:flex;align-items:center;gap:.9rem;background:rgba(0,0,0,.025);border-radius:8px;padding:.75rem;}
-.inv-preview-swatch{width:44px;height:56px;border-radius:6px;flex-shrink:0;border:1px solid rgba(0,0,0,.08);}
+.inv-overlay{position:fixed;inset:0;background:rgba(44,31,20,.45);display:flex;align-items:center;justify-content:center;padding:.75rem;z-index:100;}
+.inv-sheet{background:var(--warm);border-radius:12px;width:100%;max-width:320px;max-height:92vh;overflow-y:auto;border:1px solid var(--border);}
+.inv-sheet-head{display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem 0;}
+.inv-sheet-head h2{font-family:'Noto Serif JP',serif;font-size:1.1rem;margin:0;}
+.inv-sheet-body{padding:.5rem 1rem;display:flex;flex-direction:column;gap:.45rem;}
+.inv-sheet-foot{display:flex;justify-content:flex-end;gap:.5rem;padding:.5rem 1rem .75rem;border-top:1px solid var(--border);}
+.inv-preview-row{display:flex;align-items:center;gap:.7rem;background:rgba(0,0,0,.025);border-radius:6px;padding:.4rem .6rem;}
+.inv-preview-swatch{width:32px;height:40px;border-radius:6px;flex-shrink:0;border:1px solid rgba(0,0,0,.08);}
 .inv-preview-text{display:flex;flex-direction:column;gap:.15rem;}
 .inv-preview-text .mono{font-family:monospace;font-size:.9rem;}
 .inv-preview-text .muted{font-size:.75rem;color:var(--muted);}
-.inv-field-row{display:flex;gap:.6rem;}
-.inv-field-row .inv-field{flex:1;}
-.inv-field{display:flex;flex-direction:column;gap:.3rem;font-size:.78rem;color:var(--muted);}
+.inv-field-row{display:flex;gap:.5rem;flex-wrap:wrap;}
+.inv-field-row .inv-field{display:flex;flex-direction:column;gap:.2rem;font-size:.75rem;color:var(--muted);flex:1;min-width:0;}
+.inv-field{display:flex;flex-direction:column;gap:.2rem;font-size:.75rem;color:var(--muted);}
 .inv-field span{display:flex;align-items:center;gap:.35rem;}
-.inv-field input,.inv-field select,.inv-field textarea{font-family:'Noto Sans JP',sans-serif;font-size:.9rem;color:var(--ink);background:#fff;border:1px solid var(--border);border-radius:6px;padding:.5rem .65rem;outline:none;resize:vertical;}
+.inv-field input,.inv-field select,.inv-field textarea{font-family:'Noto Sans JP',sans-serif;font-size:.82rem;color:var(--ink);background:#fff;border:1px solid var(--border);border-radius:6px;padding:.28rem .5rem;outline:none;resize:none;}
 .inv-field input:focus,.inv-field select:focus,.inv-field textarea:focus{border-color:var(--rose);}
 .inv-field input[type=range]{padding:0;accent-color:var(--rose);}
-.inv-color-pick-row{display:flex;gap:.5rem;align-items:center;}
-.inv-color-pick-row input[type=color]{width:40px;height:36px;padding:2px;border-radius:6px;border:1px solid var(--border);cursor:pointer;}
-.inv-color-pick-row input[type=text]{flex:1;}
+.inv-color-pick-row{display:flex;gap:.5rem;align-items:center;width:100%;}
+.inv-color-pick-row input[type=color]{width:48px;height:42px;flex-shrink:0;padding:2px;border-radius:6px;border:1px solid var(--border);cursor:pointer;}
+.inv-color-pick-row input[type=text]{flex:1;min-width:0;width:100%;}
 .match-tag{font-size:.68rem;font-weight:500;padding:1px 6px;border-radius:999px;}
 .match-ok{background:rgba(92,122,107,.18);color:var(--sage);}
 .match-warn{background:var(--warn-bg);color:var(--warn);}
@@ -205,7 +205,7 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
 .inv-header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:1.4rem;}
 .inv-eyebrow{display:inline-flex;align-items:center;gap:.35rem;font-size:.7rem;letter-spacing:.1em;color:var(--rose);text-transform:uppercase;}
 .inv-title{font-family:'Noto Serif JP',serif;font-size:2rem;font-weight:600;margin-top:.2rem;}
-.inv-stats{display:flex;gap:.6rem;}
+.inv-stats{display:flex;gap:.4rem;}
 .inv-stat{background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:.5rem .9rem;display:flex;align-items:baseline;gap:.35rem;}
 .inv-stat strong{font-family:'Noto Serif JP',serif;font-size:1.2rem;}
 .inv-stat span{font-size:.72rem;color:var(--muted);}
@@ -215,7 +215,7 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
 .inv-search{flex:1 1 200px;display:flex;align-items:center;gap:.5rem;background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:0 .75rem;color:var(--muted);}
 .inv-search input{border:none;background:none;outline:none;padding:.6rem 0;font-size:.9rem;color:var(--ink);width:100%;font-family:'Noto Sans JP',sans-serif;}
 .inv-select{background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:.6rem .75rem;font-size:.85rem;color:var(--ink);font-family:'Noto Sans JP',sans-serif;outline:none;cursor:pointer;}
-.inv-btn{display:inline-flex;align-items:center;gap:.4rem;border-radius:8px;border:1px solid transparent;padding:.6rem 1rem;font-size:.85rem;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif;white-space:nowrap;}
+.inv-btn{display:inline-flex;align-items:center;gap:.4rem;border-radius:6px;border:1px solid transparent;padding:.45rem .85rem;font-size:.82rem;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif;white-space:nowrap;}
 .inv-btn-solid{background:var(--brown);color:var(--linen);}
 .inv-btn-solid:hover{background:var(--rose);}
 .inv-btn-ghost{background:transparent;border-color:var(--border);color:var(--ink);}
@@ -242,27 +242,27 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
 .inv-card-actions{display:flex;flex-direction:column;gap:.25rem;}
 .inv-icon-btn{border:none;background:none;color:var(--muted);cursor:pointer;padding:.35rem;border-radius:6px;display:flex;font-size:1rem;}
 .inv-icon-btn:hover{background:rgba(0,0,0,.05);}
-.inv-overlay{position:fixed;inset:0;background:rgba(44,31,20,.45);display:flex;align-items:center;justify-content:center;padding:1rem;z-index:100;}
-.inv-sheet{background:var(--warm);border-radius:12px;width:100%;max-width:440px;max-height:90vh;overflow-y:auto;border:1px solid var(--border);}
-.inv-sheet-head{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.2rem 0;}
-.inv-sheet-head h2{font-family:'Noto Serif JP',serif;font-size:1.3rem;margin:0;}
-.inv-sheet-body{padding:.9rem 1.2rem;display:flex;flex-direction:column;gap:.9rem;}
-.inv-sheet-foot{display:flex;justify-content:flex-end;gap:.5rem;padding:.9rem 1.2rem 1.2rem;border-top:1px solid var(--border);}
-.inv-preview-row{display:flex;align-items:center;gap:.9rem;background:rgba(0,0,0,.025);border-radius:8px;padding:.75rem;}
-.inv-preview-swatch{width:44px;height:56px;border-radius:6px;flex-shrink:0;border:1px solid rgba(0,0,0,.08);}
+.inv-overlay{position:fixed;inset:0;background:rgba(44,31,20,.45);display:flex;align-items:center;justify-content:center;padding:.75rem;z-index:100;}
+.inv-sheet{background:var(--warm);border-radius:12px;width:100%;max-width:320px;max-height:92vh;overflow-y:auto;border:1px solid var(--border);}
+.inv-sheet-head{display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem 0;}
+.inv-sheet-head h2{font-family:'Noto Serif JP',serif;font-size:1.1rem;margin:0;}
+.inv-sheet-body{padding:.5rem 1rem;display:flex;flex-direction:column;gap:.45rem;}
+.inv-sheet-foot{display:flex;justify-content:flex-end;gap:.5rem;padding:.5rem 1rem .75rem;border-top:1px solid var(--border);}
+.inv-preview-row{display:flex;align-items:center;gap:.7rem;background:rgba(0,0,0,.025);border-radius:6px;padding:.4rem .6rem;}
+.inv-preview-swatch{width:32px;height:40px;border-radius:6px;flex-shrink:0;border:1px solid rgba(0,0,0,.08);}
 .inv-preview-text{display:flex;flex-direction:column;gap:.15rem;}
 .inv-preview-text .mono{font-family:monospace;font-size:.9rem;}
 .inv-preview-text .muted{font-size:.75rem;color:var(--muted);}
-.inv-field-row{display:flex;gap:.6rem;}
-.inv-field-row .inv-field{flex:1;}
-.inv-field{display:flex;flex-direction:column;gap:.3rem;font-size:.78rem;color:var(--muted);}
+.inv-field-row{display:flex;gap:.5rem;flex-wrap:wrap;}
+.inv-field-row .inv-field{display:flex;flex-direction:column;gap:.2rem;font-size:.75rem;color:var(--muted);flex:1;min-width:0;}
+.inv-field{display:flex;flex-direction:column;gap:.2rem;font-size:.75rem;color:var(--muted);}
 .inv-field span{display:flex;align-items:center;gap:.35rem;}
-.inv-field input,.inv-field select,.inv-field textarea{font-family:'Noto Sans JP',sans-serif;font-size:.9rem;color:var(--ink);background:#fff;border:1px solid var(--border);border-radius:6px;padding:.5rem .65rem;outline:none;resize:vertical;}
+.inv-field input,.inv-field select,.inv-field textarea{font-family:'Noto Sans JP',sans-serif;font-size:.82rem;color:var(--ink);background:#fff;border:1px solid var(--border);border-radius:6px;padding:.28rem .5rem;outline:none;resize:none;}
 .inv-field input:focus,.inv-field select:focus,.inv-field textarea:focus{border-color:var(--rose);}
 .inv-field input[type=range]{padding:0;accent-color:var(--rose);}
-.inv-color-pick-row{display:flex;gap:.5rem;align-items:center;}
-.inv-color-pick-row input[type=color]{width:40px;height:36px;padding:2px;border-radius:6px;border:1px solid var(--border);cursor:pointer;}
-.inv-color-pick-row input[type=text]{flex:1;}
+.inv-color-pick-row{display:flex;gap:.5rem;align-items:center;width:100%;}
+.inv-color-pick-row input[type=color]{width:48px;height:42px;flex-shrink:0;padding:2px;border-radius:6px;border:1px solid var(--border);cursor:pointer;}
+.inv-color-pick-row input[type=text]{flex:1;min-width:0;width:100%;}
 .match-tag{font-size:.68rem;font-weight:500;padding:1px 6px;border-radius:999px;}
 .match-ok{background:rgba(92,122,107,.18);color:#5C7A6B;}
 .match-warn{background:#F3DCC9;color:#C0532A;}
@@ -371,7 +371,7 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
     </div>
     <div class="inv-sheet-body">
       <div class="inv-preview-row">
-        <div class="inv-preview-swatch" id="modal-swatch" style="background:#B5483D"></div>
+        <div class="inv-preview-swatch" id="modal-swatch"></div>
         <div class="inv-preview-text">
           <span class="mono" id="modal-preview-num">—</span>
           <span class="muted" id="modal-preview-name">色名未設定</span>
@@ -399,12 +399,12 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
           <input id="modal-name" placeholder="例: ブラック">
         </label>
       </div>
-      <p class="inv-hint" id="dmc-hint" style="display:none">DMCの番号を入力すると、色見本が自動で設定されます。</p>
+      <p class="inv-hint" id="dmc-hint" style="display:none">DMCの番号を入力すると色見本が自動設定されます。</p>
       <label class="inv-field">
         <span>色見本</span>
         <div class="inv-color-pick-row">
           <input type="color" id="modal-color-picker" value="#B5483D">
-          <input type="text" id="modal-hex" value="#B5483D" style="font-family:monospace">
+          <input type="text" id="modal-hex" value="#B5483D" class="mono" placeholder="#000000" style="flex:1">
         </div>
       </label>
       <div class="inv-field-row">
@@ -423,7 +423,7 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
       </label>
       <label class="inv-field">
         <span>メモ</span>
-        <textarea id="modal-notes" rows="2" placeholder="任意"></textarea>
+        <textarea id="modal-notes" rows="1" placeholder="任意"></textarea>
       </label>
     </div>
     <div class="inv-sheet-foot">
@@ -968,7 +968,12 @@ function openModal(id) {
   updateModalPreview();
   handleBrandChange();
   document.getElementById('inv-modal').style.display = 'flex';
-  setTimeout(() => document.getElementById('modal-num').focus(), 50);
+  // iOSでinputフォーカス時のズームをリセット
+  document.querySelector('meta[name=viewport]').setAttribute('content','width=device-width, initial-scale=1, maximum-scale=1');
+  setTimeout(() => {
+    document.querySelector('meta[name=viewport]').setAttribute('content','width=device-width, initial-scale=1');
+    document.getElementById('modal-num').focus();
+  }, 50);
 }
 function closeModal() { document.getElementById('inv-modal').style.display = 'none'; editingId = null; }
 function updateModalPreview() {
@@ -983,7 +988,11 @@ function updateModalPreview() {
 function handleBrandChange() {
   const brand = document.getElementById('modal-brand').value;
   document.getElementById('custom-brand-field').style.display = brand === 'その他' ? 'flex' : 'none';
-  document.getElementById('dmc-hint').style.display = brand === 'DMC' ? 'block' : 'none';
+  const showHint = ['DMC','コスモ','オリムパス'].includes(brand);
+  document.getElementById('dmc-hint').style.display = showHint ? 'block' : 'none';
+  document.getElementById('dmc-hint').textContent = showHint
+    ? `${brand}の番号を入力すると、色見本が自動で設定されます。`
+    : '';
 }
 document.getElementById('modal-brand').addEventListener('change', () => { handleBrandChange(); checkDmcAuto(); updateModalPreview(); });
 document.getElementById('modal-num').addEventListener('input', () => { checkDmcAuto(); updateModalPreview(); });
@@ -998,14 +1007,27 @@ document.getElementById('inv-modal').addEventListener('click', e => { if (e.targ
 function checkDmcAuto() {
   const brand = document.getElementById('modal-brand').value;
   const tag = document.getElementById('match-tag');
-  if (brand !== 'DMC') { tag.style.display = 'none'; return; }
-  const num = document.getElementById('modal-num').value.trim().toUpperCase();
+  const num = document.getElementById('modal-num').value.trim();
   if (!num) { tag.style.display = 'none'; return; }
-  const match = DMC_OFFICIAL[num];
+
+  let match = null;
+  if (brand === 'DMC') {
+    const m = DMC_OFFICIAL[num.toUpperCase()];
+    if (m) match = { hex: m[0], name: m[1] };
+  } else if (brand === 'コスモ') {
+    const m = COSMO.find(d => d.n === num);
+    if (m) match = { hex: m.h, name: m.name };
+  } else if (brand === 'オリムパス') {
+    const m = OLYMPUS.find(d => d.n === num);
+    if (m) match = { hex: m.h, name: m.name };
+  } else {
+    tag.style.display = 'none'; return;
+  }
+
   if (match) {
-    document.getElementById('modal-hex').value = match[0];
-    document.getElementById('modal-color-picker').value = match[0];
-    document.getElementById('modal-name').value = match[1];
+    document.getElementById('modal-hex').value = match.hex;
+    document.getElementById('modal-color-picker').value = match.hex;
+    document.getElementById('modal-name').value = match.name;
     tag.textContent = '✓ 公式カラーを自動設定'; tag.className = 'match-tag match-ok'; tag.style.display = 'inline';
     updateModalPreview();
   } else {
