@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>刺繍糸カラーマッチング</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>">
 <style>
@@ -126,7 +126,7 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
 
 .inv-toolbar{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.2rem;align-items:stretch;}
 .inv-search{flex:1 1 200px;display:flex;align-items:center;gap:.5rem;background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:0 .75rem;color:var(--muted);}
-.inv-search input{border:none;background:none;outline:none;padding:.6rem 0;font-size:.9rem;color:var(--ink);width:100%;font-family:'Noto Sans JP',sans-serif;}
+.inv-search input{border:none;background:none;outline:none;padding:.6rem 0;font-size:16px;color:var(--ink);width:100%;font-family:'Noto Sans JP',sans-serif;}
 .inv-select{background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:.6rem .75rem;font-size:.85rem;color:var(--ink);font-family:'Noto Sans JP',sans-serif;outline:none;cursor:pointer;}
 .inv-btn{display:inline-flex;align-items:center;gap:.4rem;border-radius:6px;border:1px solid transparent;padding:.45rem .85rem;font-size:.82rem;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif;white-space:nowrap;}
 .inv-btn-solid{background:var(--brown);color:var(--linen);}
@@ -175,7 +175,7 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
 .inv-field-row .inv-field{display:flex;flex-direction:column;gap:.2rem;font-size:.75rem;color:var(--muted);flex:1;min-width:0;}
 .inv-field{display:flex;flex-direction:column;gap:.2rem;font-size:.75rem;color:var(--muted);}
 .inv-field span{display:flex;align-items:center;gap:.35rem;}
-.inv-field input,.inv-field select,.inv-field textarea{font-family:'Noto Sans JP',sans-serif;font-size:.82rem;color:var(--ink);background:#fff;border:1px solid var(--border);border-radius:6px;padding:.28rem .5rem;outline:none;resize:none;}
+.inv-field input,.inv-field select,.inv-field textarea{font-family:'Noto Sans JP',sans-serif;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--border);border-radius:6px;padding:.28rem .5rem;outline:none;resize:none;}
 .inv-field input:focus,.inv-field select:focus,.inv-field textarea:focus{border-color:var(--rose);}
 .inv-field input[type=range]{padding:0;accent-color:var(--rose);}
 .inv-color-pick-row{display:flex;gap:.5rem;align-items:center;width:100%;}
@@ -213,7 +213,7 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
 .inv-stat-warn strong,.inv-stat-warn span{color:var(--warn,#C0532A);}
 .inv-toolbar{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.2rem;}
 .inv-search{flex:1 1 200px;display:flex;align-items:center;gap:.5rem;background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:0 .75rem;color:var(--muted);}
-.inv-search input{border:none;background:none;outline:none;padding:.6rem 0;font-size:.9rem;color:var(--ink);width:100%;font-family:'Noto Sans JP',sans-serif;}
+.inv-search input{border:none;background:none;outline:none;padding:.6rem 0;font-size:16px;color:var(--ink);width:100%;font-family:'Noto Sans JP',sans-serif;}
 .inv-select{background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:.6rem .75rem;font-size:.85rem;color:var(--ink);font-family:'Noto Sans JP',sans-serif;outline:none;cursor:pointer;}
 .inv-btn{display:inline-flex;align-items:center;gap:.4rem;border-radius:6px;border:1px solid transparent;padding:.45rem .85rem;font-size:.82rem;font-weight:500;cursor:pointer;font-family:'Noto Sans JP',sans-serif;white-space:nowrap;}
 .inv-btn-solid{background:var(--brown);color:var(--linen);}
@@ -257,7 +257,7 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
 .inv-field-row .inv-field{display:flex;flex-direction:column;gap:.2rem;font-size:.75rem;color:var(--muted);flex:1;min-width:0;}
 .inv-field{display:flex;flex-direction:column;gap:.2rem;font-size:.75rem;color:var(--muted);}
 .inv-field span{display:flex;align-items:center;gap:.35rem;}
-.inv-field input,.inv-field select,.inv-field textarea{font-family:'Noto Sans JP',sans-serif;font-size:.82rem;color:var(--ink);background:#fff;border:1px solid var(--border);border-radius:6px;padding:.28rem .5rem;outline:none;resize:none;}
+.inv-field input,.inv-field select,.inv-field textarea{font-family:'Noto Sans JP',sans-serif;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--border);border-radius:6px;padding:.28rem .5rem;outline:none;resize:none;}
 .inv-field input:focus,.inv-field select:focus,.inv-field textarea:focus{border-color:var(--rose);}
 .inv-field input[type=range]{padding:0;accent-color:var(--rose);}
 .inv-color-pick-row{display:flex;gap:.5rem;align-items:center;width:100%;}
@@ -968,10 +968,7 @@ function openModal(id) {
   updateModalPreview();
   handleBrandChange();
   document.getElementById('inv-modal').style.display = 'flex';
-  // iOSでinputフォーカス時のズームをリセット
-  document.querySelector('meta[name=viewport]').setAttribute('content','width=device-width, initial-scale=1, maximum-scale=1');
   setTimeout(() => {
-    document.querySelector('meta[name=viewport]').setAttribute('content','width=device-width, initial-scale=1');
     document.getElementById('modal-num').focus();
   }, 50);
 }
