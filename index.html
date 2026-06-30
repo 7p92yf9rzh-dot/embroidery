@@ -428,6 +428,7 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
         <textarea id="modal-notes" rows="1" placeholder="任意"></textarea>
       </label>
     </div>
+    <div id="modal-error" style="display:none;margin:0 1.2rem;padding:.6rem .85rem;background:var(--warn-bg);border:1px solid var(--warn);color:var(--warn);border-radius:8px;font-size:.82rem;"></div>
     <div class="inv-sheet-foot">
       <button class="inv-btn inv-btn-ghost" id="modal-cancel">キャンセル</button>
       <button class="inv-btn inv-btn-solid" id="modal-save">保存する</button>
@@ -1071,6 +1072,7 @@ function renderInventory() {
 // ── モーダル ──
 function openModal(id) {
   editingId = id || null;
+  document.getElementById('modal-error').style.display = 'none';
   const t = id ? inventory.find(x => x.id === id) : null;
   document.getElementById('modal-title').textContent = t ? '糸を編集' : '糸を追加';
   document.getElementById('modal-brand').value = t?.brand || 'DMC';
@@ -1151,10 +1153,27 @@ function checkDmcAuto() {
 }
 
 document.getElementById('modal-save').addEventListener('click', () => {
+  const errEl = document.getElementById('modal-error');
+  errEl.style.display = 'none';
+
   const num = document.getElementById('modal-num').value.trim();
   if (!num) return;
   let brand = document.getElementById('modal-brand').value;
   if (brand === 'その他') { const cb = document.getElementById('modal-custom-brand').value.trim(); if (cb) brand = cb; }
+
+  // 重複チェック（同じブランド・同じ色番号、編集中の自分自身は除外）
+  const isDuplicate = inventory.some(x =>
+    x.id !== editingId &&
+    x.brand === brand &&
+    x.colorNumber.trim().toLowerCase() === num.toLowerCase()
+  );
+  if (isDuplicate) {
+    errEl.textContent = `⚠️ ${brand} ${num} はすでに登録されています。`;
+    errEl.style.display = 'block';
+    errEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    return;
+  }
+
   const t = {
     id: editingId || uid(),
     brand,
