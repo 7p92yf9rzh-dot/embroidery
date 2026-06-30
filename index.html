@@ -67,6 +67,12 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
 .hint-bar b{color:var(--rose);font-weight:500;}
 .btn-clear-sel{display:none;background:none;border:1px solid var(--border);border-radius:3px;padding:.32rem .85rem;font-size:.82rem;color:var(--muted);cursor:pointer;margin-top:.3rem;font-family:'Noto Sans JP',sans-serif;}
 .btn-clear-sel:hover{border-color:var(--rose);color:var(--rose);}
+.count-row{margin-top:.9rem;}
+.count-label{font-size:.78rem;color:var(--muted);display:block;margin-bottom:.4rem;}
+.count-btns{display:flex;gap:.4rem;flex-wrap:wrap;}
+.count-btn{flex:1;min-width:42px;border:1px solid var(--border);background:var(--warm);border-radius:6px;padding:.5rem 0;font-size:.9rem;font-family:'Noto Sans JP',sans-serif;color:var(--ink);cursor:pointer;transition:.15s;}
+.count-btn:hover{border-color:var(--rose);color:var(--rose);}
+.count-btn.active{background:var(--brown);border-color:var(--brown);color:var(--linen);font-weight:500;}
 .btn-extract{background:var(--brown);color:var(--linen);border:none;border-radius:3px;padding:.75rem 1.4rem;font-family:'Noto Sans JP',sans-serif;font-size:1rem;font-weight:400;letter-spacing:.06em;cursor:pointer;transition:.2s;width:100%;margin-top:.7rem;}
 .btn-extract:hover{background:var(--rose);}
 .btn-extract:disabled{background:var(--muted);cursor:not-allowed;}
@@ -314,6 +320,17 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
           </svg>
         </div>
         <div class="hint-bar" id="hint-bar"><b>移動モード</b>：ドラッグでパン ／ ホイール・ピンチでズーム</div>
+        <div class="count-row">
+          <span class="count-label">抽出する色数</span>
+          <div class="count-btns" id="count-btns">
+            <button class="count-btn" data-count="4">4</button>
+            <button class="count-btn" data-count="6">6</button>
+            <button class="count-btn active" data-count="8">8</button>
+            <button class="count-btn" data-count="10">10</button>
+            <button class="count-btn" data-count="12">12</button>
+            <button class="count-btn" data-count="16">16</button>
+          </div>
+        </div>
         <button class="btn-extract" id="btn-extract">色を抽出して糸番号を探す</button>
       </div>
       <div class="loading" id="loading"><div class="spinner"></div><div>色を解析中…</div></div>
@@ -959,13 +976,22 @@ function buildMatchCard(rank,extractedRgb,thread,delta,pct,isBest,brand){
   </div>`;
 }
 
+let selectedColorCount = 8;
+document.querySelectorAll('.count-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.count-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedColorCount = parseInt(btn.dataset.count);
+  });
+});
+
 document.getElementById('btn-extract').addEventListener('click',()=>{
   if(!img)return;
   document.getElementById('btn-extract').disabled=true;
   document.getElementById('loading').style.display='block';
   document.getElementById('results-section').style.display='none';
   setTimeout(()=>{
-    const k=5;
+    const k=selectedColorCount;
     let sx=0,sy=0,sw=img.width,sh=img.height;
     if(selection){sx=Math.max(0,Math.round(selection.x));sy=Math.max(0,Math.round(selection.y));sw=Math.min(Math.round(selection.w),img.width-sx);sh=Math.min(Math.round(selection.h),img.height-sy);}
     const scale=Math.min(300/sw,300/sh,1);
