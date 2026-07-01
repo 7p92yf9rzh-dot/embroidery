@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>刺繍糸カラーマッチング</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap');
 :root{
@@ -99,6 +102,8 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
 .delta-great{background:#E8F5E8;color:#2E7D32;}
 .delta-good{background:#FFF8E1;color:#F57F17;}
 .delta-fair{background:#FDE8E8;color:#C62828;}
+.buy-link{display:inline-flex;align-items:center;gap:.25rem;font-size:.78rem;color:#fff;background:#BF0000;border-radius:10px;padding:2px 9px;margin-top:.35rem;margin-left:.35rem;text-decoration:none;font-weight:500;vertical-align:middle;transition:.15s;}
+.buy-link:hover{background:#900000;}
 .row-bar{width:58px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.4rem .3rem;border-left:1px solid var(--border);flex-shrink:0;}
 .bar-track{width:8px;flex:1;background:var(--border);border-radius:4px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;max-height:60px;}
 .bar-fill{width:100%;background:var(--rose);border-radius:4px;transition:height .4s ease;}
@@ -793,6 +798,19 @@ function hasStock(brand,num){
 }
 
 // ══════════════════════════════════════════════
+//  楽天アフィリエイトリンク
+// ══════════════════════════════════════════════
+const RAKUTEN_AFFILIATE_ID='06dd2d3b.cb3bd32c.06dd2d3c.02a8cf38';
+const BRAND_SEARCH_LABEL={dmc:'DMC 25番 刺繍糸',cosmo:'コスモ 25番 刺繍糸',olympus:'オリムパス 25番 刺繍糸'};
+// brand='dmc'/'cosmo'/'olympus', num=色番号, name=色名 → 楽天市場の検索結果へのアフィリエイトリンク
+function buildRakutenLink(brand,num,name){
+  const label=BRAND_SEARCH_LABEL[brand]||brand;
+  const keyword=`${label} ${num}`;
+  const searchUrl='https://search.rakuten.co.jp/search/mall/'+encodeURIComponent(keyword)+'/';
+  return `https://hb.afl.rakuten.co.jp/hgc/${RAKUTEN_AFFILIATE_ID}/?pc=${encodeURIComponent(searchUrl)}`;
+}
+
+// ══════════════════════════════════════════════
 //  タブ切り替え
 // ══════════════════════════════════════════════
 document.querySelectorAll('.app-tab').forEach(tab=>{
@@ -957,6 +975,7 @@ function buildMatchCard(rank,extractedRgb,thread,delta,pct,isBest,brand){
   const inStock=hasStock(brand,thread.n);
   const check=inStock?'<span class="check-badge" title="在庫あり">✅</span>':'';
   const stockClass=inStock?' in-stock':'';
+  const buyLink=inStock?'':`<a class="buy-link" href="${buildRakutenLink(brand,thread.n,thread.name)}" target="_blank" rel="noopener sponsored">🛒 楽天で購入</a>`;
   return `<div class="color-row${isBest?' best-brand':''}${stockClass}">
     <div class="row-rank">${rank}</div>
     <div class="row-swatches">
@@ -968,6 +987,7 @@ function buildMatchCard(rank,extractedRgb,thread,delta,pct,isBest,brand){
       <div class="thread-name">${thread.name}</div>
       <div class="hex-pair"><span>${hex.toUpperCase()}</span><span>→</span><span>${thread.h.toUpperCase()}</span></div>
       <span class="delta-badge ${bc}">${bt} ΔE ${delta.toFixed(1)}</span>
+      ${buyLink}
     </div>
     <div class="row-bar">
       <div class="bar-track"><div class="bar-fill" style="height:${barH}%"></div></div>
