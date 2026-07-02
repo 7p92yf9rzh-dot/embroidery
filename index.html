@@ -24,10 +24,10 @@ header h1{font-family:'Noto Serif JP',serif;font-size:1.35rem;color:var(--linen)
 header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem;}
 
 /* ── タブナビ ── */
-.app-tabs{display:flex;background:var(--brown);border-top:1px solid rgba(255,255,255,.12);}
-.app-tab{flex:1;padding:.7rem;font-size:.85rem;font-family:'Noto Sans JP',sans-serif;font-weight:400;color:rgba(253,243,230,.6);background:none;border:none;cursor:pointer;letter-spacing:.05em;transition:.15s;border-bottom:2px solid transparent;}
-.app-tab:hover{color:var(--linen);}
-.app-tab.active{color:var(--linen);border-bottom-color:var(--rose);}
+.app-tabs{display:flex;gap:.4rem;background:var(--warm);border-top:1px solid var(--border);padding:.6rem .6rem;}
+.app-tab{flex:1;padding:1rem .7rem;font-size:.85rem;font-family:'Noto Sans JP',sans-serif;font-weight:500;color:var(--muted);background:none;border:none;border-radius:999px;cursor:pointer;letter-spacing:.05em;transition:.15s;}
+.app-tab:hover{color:var(--ink);}
+.app-tab.active{color:#fff;background:var(--brown);box-shadow:0 2px 6px rgba(44,31,20,.18);}
 
 /* ── ページ ── */
 .page{display:none;}.page.active{display:block;}
@@ -126,6 +126,19 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
 .inv-wrap{max-width:1100px;margin:0 auto;padding:1.4rem 1rem 3rem;}
 .inv-header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:1.4rem;}
 .inv-title-block{}
+
+/* ══════════════════════════════════
+   About Me
+══════════════════════════════════ */
+.about-wrap{max-width:480px;margin:0 auto;padding:2.4rem 1.2rem 3rem;}
+.about-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2.4rem 1.6rem;text-align:center;}
+.about-icon{font-size:2.6rem;margin-bottom:.6rem;}
+.about-title{font-family:'Noto Serif JP',serif;font-size:1.5rem;font-weight:600;margin-bottom:.8rem;color:var(--ink);}
+.about-desc{font-size:.9rem;color:var(--muted);line-height:1.7;margin-bottom:2.6rem;}
+.about-links{display:flex;flex-direction:column;gap:.7rem;}
+.about-link{display:flex;align-items:center;gap:.7rem;padding:.85rem 1.1rem;border-radius:12px;background:var(--warm);border:1px solid var(--border);color:var(--ink);text-decoration:none;font-size:.9rem;font-weight:500;transition:.15s;}
+.about-link:hover{background:var(--brown);color:#fff;}
+.about-link-icon{font-size:1.15rem;width:1.6rem;text-align:center;}
 .inv-title{font-family:'Noto Serif JP',serif;font-size:2rem;font-weight:600;margin-top:.2rem;letter-spacing:-.01em;}
 .inv-stats{display:flex;gap:.4rem;}
 .inv-stat{background:var(--warm);border:1px solid var(--border);border-radius:8px;padding:.5rem .9rem;display:flex;align-items:baseline;gap:.35rem;}
@@ -202,10 +215,10 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
 .inv-error{background:var(--warn-bg);border:1px solid var(--warn);color:var(--warn);border-radius:8px;padding:.65rem .9rem;font-size:.82rem;margin-bottom:1rem;}
 
 /* ── アプリタブ ── */
-.app-tabs{display:flex;background:var(--brown);border-top:1px solid rgba(255,255,255,.12);}
-.app-tab{flex:1;padding:.7rem;font-size:.85rem;font-family:'Noto Sans JP',sans-serif;font-weight:400;color:rgba(253,243,230,.6);background:none;border:none;cursor:pointer;letter-spacing:.05em;transition:.15s;border-bottom:2px solid transparent;}
-.app-tab:hover{color:var(--linen);}
-.app-tab.active{color:var(--linen);border-bottom-color:var(--rose);}
+.app-tabs{display:flex;gap:.4rem;background:var(--warm);border-top:1px solid var(--border);padding:.6rem .6rem;}
+.app-tab{flex:1;padding:1rem .7rem;font-size:.85rem;font-family:'Noto Sans JP',sans-serif;font-weight:500;color:var(--muted);background:none;border:none;border-radius:999px;cursor:pointer;letter-spacing:.05em;transition:.15s;}
+.app-tab:hover{color:var(--ink);}
+.app-tab.active{color:#fff;background:var(--brown);box-shadow:0 2px 6px rgba(44,31,20,.18);}
 .page{display:none;}.page.active{display:block;}
 .check-badge{font-size:1rem;color:#2E7D32;}
 .color-row.in-stock{border-left:3px solid #2E7D32;}
@@ -289,6 +302,7 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
 <nav class="app-tabs">
   <button class="app-tab active" data-tab="inventory">🗃️ 刺繍糸管理</button>
   <button class="app-tab" data-tab="matcher">🎨 カラーマッチ</button>
+  <button class="app-tab" data-tab="about">🙋 About Me</button>
 </nav>
 
 <!-- ═══ カラーマッチャー ═══ -->
@@ -383,6 +397,22 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
       <label class="inv-btn inv-btn-ghost">📥 インポート<input type="file" id="inv-import-input" accept=".json" style="display:none"></label>
     </div>
     <div id="inv-list-wrap"></div>
+  </div>
+</div>
+
+<!-- ═══ About Me ページ ═══ -->
+<div id="page-about" class="page">
+  <div class="about-wrap">
+    <div class="about-card">
+      <div class="about-icon">🧵</div>
+      <p class="about-desc">洋裁ブログを運営してます。刺繍も大好き❤️</p>
+      <div class="about-links">
+        <a class="about-link" href="https://maisondeas.com/" target="_blank" rel="noopener">🌐 MAISONDEAS</a>
+        <a class="about-link" href="https://x.com/maisondeas" target="_blank" rel="noopener">𝕏 X（旧Twitter）</a>
+        <a class="about-link" href="https://www.threads.com/@maisondeas" target="_blank" rel="noopener">🧵 Threads</a>
+        <a class="about-link" href="https://www.instagram.com/maisondeas/" target="_blank" rel="noopener">📷 Instagram</a>
+      </div>
+    </div>
   </div>
 </div>
 
