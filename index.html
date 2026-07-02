@@ -378,6 +378,7 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
         <option value="recent">追加が新しい順</option>
       </select>
       <button class="inv-btn inv-btn-solid" id="inv-add-btn">＋ 糸を追加</button>
+      <button class="inv-btn inv-btn-ghost" id="inv-dup-btn">🔁 重複チェック</button>
       <button class="inv-btn inv-btn-ghost" id="inv-export-btn">📤 バックアップ</button>
       <label class="inv-btn inv-btn-ghost">📥 インポート<input type="file" id="inv-import-input" accept=".json" style="display:none"></label>
     </div>
@@ -464,6 +465,16 @@ header p{color:var(--rose);font-size:.9rem;letter-spacing:.06em;margin-top:.3rem
     <div class="inv-confirm-actions">
       <button class="inv-btn inv-btn-ghost" id="confirm-cancel">キャンセル</button>
       <button class="inv-btn inv-btn-danger" id="confirm-ok">削除する</button>
+    </div>
+  </div>
+</div>
+
+<!-- 重複チェック結果 -->
+<div class="inv-overlay" id="dup-modal" style="display:none">
+  <div class="inv-confirm">
+    <p id="dup-modal-body">確認中…</p>
+    <div class="inv-confirm-actions">
+      <button class="inv-btn inv-btn-solid" id="dup-modal-close">閉じる</button>
     </div>
   </div>
 </div>
@@ -1240,6 +1251,32 @@ document.getElementById('modal-save').addEventListener('click', () => {
 function openConfirmDelete(id) { confirmDeleteId = id; document.getElementById('confirm-modal').style.display = 'flex'; }
 document.getElementById('confirm-cancel').addEventListener('click', () => { document.getElementById('confirm-modal').style.display = 'none'; confirmDeleteId = null; });
 document.getElementById('confirm-ok').addEventListener('click', () => { if (confirmDeleteId) { inventory = inventory.filter(x => x.id !== confirmDeleteId); saveInventory(); renderInventory(); } document.getElementById('confirm-modal').style.display = 'none'; confirmDeleteId = null; });
+
+// ══════════════════════════════════════════════
+//  重複チェック(同じブランド×色番号)
+// ══════════════════════════════════════════════
+function checkDuplicates() {
+  const groups = {};
+  inventory.forEach(t => {
+    const brand = (t.brand || '').trim();
+    const num = (t.colorNumber || '').trim();
+    if (!brand || !num) return;
+    const key = brand.toLowerCase() + '||' + num.toLowerCase();
+    if (!groups[key]) groups[key] = { brand, num, items: [] };
+    groups[key].items.push(t);
+  });
+  const dups = Object.values(groups).filter(g => g.items.length > 1);
+  const body = document.getElementById('dup-modal-body');
+  if (dups.length === 0) {
+    body.innerHTML = '重複している糸は見つかりませんでした。';
+  } else {
+    const lines = dups.map(g => `${g.brand} ${g.num}（${g.items.length}件）`);
+    body.innerHTML = `重複が${dups.length}件見つかりました。<br><br>` + lines.join('<br>');
+  }
+  document.getElementById('dup-modal').style.display = 'flex';
+}
+document.getElementById('inv-dup-btn').addEventListener('click', checkDuplicates);
+document.getElementById('dup-modal-close').addEventListener('click', () => { document.getElementById('dup-modal').style.display = 'none'; });
 document.getElementById('confirm-modal').addEventListener('click', e => { if (e.target === e.currentTarget) { document.getElementById('confirm-modal').style.display = 'none'; confirmDeleteId = null; } });
 
 document.getElementById('inv-add-btn').addEventListener('click', () => openModal());
